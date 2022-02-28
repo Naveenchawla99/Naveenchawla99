@@ -1,0 +1,18 @@
+
+import random
+def primenumber_checker(num): #define a function with num parameter 
+    
+  if num > 1:               #prime number starts with 2
+    for a in range(2,int(n/2)+1): #using a for loop to check every number
+      if num % a == 0: #condition if the reminder is 0 its not prime number
+        print(f"{num} is not a prime number")
+        break                                     #to break the loop
+      else:
+        print(f"{num} is a prime number")
+        break
+    
+n = int(input("Check this number: ")) #n is using for taking input 
+primenumber_checker(num=n)  #n used as positioning keyword in python
+
+
+
