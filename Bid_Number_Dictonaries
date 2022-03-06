@@ -1,0 +1,32 @@
+from replit import clear
+#HINT: You can call clear() to clear the output in the console.
+from art import logo 
+print(logo)
+
+bids = {} #intallize a dictonary
+bidding_finished = False #instalise a boolen value false of bidding_finished
+
+def highest_bidder(bidding_records): #define a function
+  highest_bid = 0                  #intalize value of highest_bid
+  for bidder in bidding_records: #check each bidder(name) in bidding_records
+    bid_amount = bidding_records[bidder] #we update new bidder(names) and save it in bid_amount variable 
+    if bid_amount > highest_bid: 
+      highest_bid = bid_amount
+      winner = bidder
+  print(f"the winner is {winner} with a bid of $ {highest_bid}")
+
+
+while not bidding_finished:   #while loop if user want to continue because we dont know how much times user want continue
+  name = input("what is your name: ")  
+  price = int(input("what is your bid price: "))
+  bids[name] = price #save name and price in bid dictonary 
+  should_contine = input("any other bidders! Type yes or No: \n")
+  if should_contine == "no":
+    bidding_finished = True
+    highest_bidder(bids)
+  elif should_contine == "yes":
+    clear() #user for clear the screen if user press yes
+    
+    
+  
+
