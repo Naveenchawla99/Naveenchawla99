@@ -1,0 +1,83 @@
+from art import logo
+
+def add(n1,n2):
+  return n1 + n2
+
+
+#Function intalize 
+def subtract(n1,n2):
+  return n1 - n2
+
+def multiply(n1,n2):
+  return n1 * n2
+
+def divide(n1,n2):
+  return n1 / n2
+
+
+
+
+#operators intalize uisng dictionary 
+operators = {
+  "+" : add,
+  
+  "-": subtract,
+  
+  "*":multiply,
+  
+  "/": divide
+  
+}
+
+# num3 = 0
+# num1 = int(input("what first number you choose: "))
+
+# for operate in operators:
+#   print(operate)
+# is_countinue = True
+# operation_symbol = input("which symbol you want to choose")
+# num2 = int(input("what second number you choose :"))  
+# calculate_number =operators[operation_symbol]
+# first_answer = calculate_number(num1, num2) 
+# print(f"{num1} {operation_symbol} {num2} = {first_answer}")
+
+# is_countinue = input("do you want to calculate more! Type 'y' for yes & 'n' for No")
+
+# while is_countinue:
+#   if is_countinue == "n":
+#     is_countinue = False
+#     print("Bye Bye")
+    
+#   elif is_countinue == "y":
+#     operation_symbol = input("which symbol you want to choose:")
+#     # num3 = int(input("what second number you choose :"))
+#     calculate_number =operators[operation_symbol]
+#     second_answer =calculate_number(calculate_number(num1,num2),num3) #here is why we use Return function
+# # print(second_answer)
+#     print(f"{first_answer} {operation_symbol} {num3} = {second_answer} ")
+
+def calculator():#using this function for recursion
+  print(logo)
+  num1 = float(input("choose your first number :"))
+  for operate in operators:
+    print(operate)
+
+  # """intalize a boolean value to check the calculator will be use after first iteration"""
+
+  is_continue = True  
+  while is_continue:
+    operator_symbol = input("pick Operator symbol :")
+    num2 = float(input("whats your next number :"))
+    calculation_function = operators[operator_symbol]
+    answer = calculation_function(num1, num2)#output can be use as input in different parts of the code
+    print(f"{num1} {operate} {num2} = {answer}")
+    
+    if input(f"type y to calculating with {answer} and type n for new calculation" ) == "y":
+      num1 = answer
+    else:
+      is_continue = False
+calculator() #recursion function
+    
+  
+  
+  
