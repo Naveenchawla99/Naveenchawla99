@@ -1,0 +1,53 @@
+
+from art import logo
+from random import randint
+
+
+#global Variables
+Easy_level = 10
+Hard_level = 5
+
+
+def answer_check(guess_number, choose_number,turns):
+  """this function will take 3 inputs """
+  if guess_number > choose_number:
+    print("Too High")
+    return turns - 1
+  elif guess_number < choose_number:
+    print("Too Low")
+    return turns - 1
+  else:
+    print("you choose the right number {choose_number}")
+
+
+#intalize function 
+def get_difficulty():
+  level = input("choose difficulty 'Easy' or 'Hard'")
+  if level == "easy":
+    return Easy_level
+  elif level == "hard":
+    return Hard_level
+
+def game_play():
+  print(logo)
+  print("Welcome to Number Guess Game")
+  print("I think a number between 1 to 100 ")
+  choose_number = randint(1,100)
+  print(f"the correct number is {choose_number}")
+
+
+  turns = get_difficulty()
+  guess_number = 0
+  while guess_number != choose_number:
+    print(f"you have {turns} remaining to attempt the number")
+    guess_number = int(input("make Your Guess: \n"))
+    turns = answer_check(guess_number, choose_number,turns)
+    if turns == 0:
+      print("You've run out of guesses, you lose.")
+      return
+    elif guess_number != choose_number:
+      print("Guess again.")
+
+game_play()
+    
+    
